@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import AVKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let dataSource = GifsDataSource()
+    
+    // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        collectionView.registerClass(GifCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.dataSource = dataSource
+        dataSource.loadGifsWithCompletionHandler {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
 
 }
 
