@@ -9,7 +9,11 @@
 import UIKit
 import AVKit
 
-class HomeViewController: UIViewController {
+let interitemSpacing : CGFloat = 48
+let sectionInset : CGFloat = 20
+let cellsPerRow : CGFloat = 5
+
+class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,6 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         collectionView.registerClass(GifCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         dataSource.loadGifsWithCompletionHandler {
             self.collectionView.reloadData()
         }
@@ -34,6 +39,28 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    // MARK: - UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        let numberOfSpaces = cellsPerRow - 1
+        let totalSpace = (numberOfSpaces * interitemSpacing) + (sectionInset * 2)
+        let width = collectionView.frame.size.width
+        let dimension = (width - totalSpace) / cellsPerRow
+        return CGSizeMake(dimension, dimension)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return interitemSpacing
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return interitemSpacing
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(sectionInset, sectionInset, 0, sectionInset)
+    }
 }
 

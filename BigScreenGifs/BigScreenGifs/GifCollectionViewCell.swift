@@ -9,13 +9,13 @@
 import UIKit
 import AVKit
 
-let kCellPopAnimationDuration : NSTimeInterval = 0.2
-let kCellPopAnimationScale : CGFloat = 1.2
+let cellPopAnimationDuration : NSTimeInterval = 0.2
+let cellPopAnimationScale : CGFloat = 1.15
 
 class GifCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Constants
-    
+    let popTransform = CGAffineTransformMakeScale(cellPopAnimationScale, cellPopAnimationScale)
     let player = AVPlayer()
     let playerLayer = AVPlayerLayer()
     
@@ -30,7 +30,7 @@ class GifCollectionViewCell: UICollectionViewCell {
         didSet {
             self.playerItem = AVPlayerItem(asset: gif.asset)
             self.player.replaceCurrentItemWithPlayerItem(self.playerItem)
-            self.player.play()
+            //self.player.play()
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: "itemDidEnd:", name: AVPlayerItemDidPlayToEndTimeNotification, object: playerItem)
         }
@@ -41,7 +41,12 @@ class GifCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         playerLayer.player = player
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         contentView.layer.addSublayer(playerLayer)
+        self.layer.shadowColor = UIColor.blackColor().CGColor
+        self.layer.shadowOffset = CGSizeMake(0, 0)
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -55,15 +60,42 @@ class GifCollectionViewCell: UICollectionViewCell {
         playerLayer.frame = contentView.bounds
     }
     
+    // MARK: - Animation Methods
+    
+    func popAnimated(animated: Bool) {
+        UIView.animateWithDuration(animated ? cellPopAnimationDuration : 0.0,
+            delay: 0.0,
+            options: .CurveEaseInOut,
+            animations: { () -> Void in
+                self.transform = self.popTransform
+                self.layer.shadowOpacity = 0.5
+                self.layer.shadowOffset = CGSizeMake(0, 10)
+            },
+            completion: nil)
+    }
+    
+    func unpopAnimated(animated: Bool) {
+        UIView.animateWithDuration(animated ? cellPopAnimationDuration : 0.0,
+            delay: 0.0,
+            options: .CurveEaseInOut,
+            animations: { () -> Void in
+                self.transform = CGAffineTransformIdentity
+                self.layer.shadowOpacity = 0.0
+                self.layer.shadowOffset = CGSizeMake(0, 0)
+            },
+            completion: nil)
+    }
+    
+    
     // MARK: - Focus Engine Methods
     
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        
-        UIView.animateWithDuration(kCellPopAnimationDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-            self.transform =  self.focused ? CGAffineTransformMakeScale(kCellPopAnimationScale, kCellPopAnimationScale) :CGAffineTransformIdentity
-
-            }) { (success) -> Void in
-                
+        if self.focused {
+            self.popAnimated(true)
+            self.player.play()
+        } else {
+            self.unpopAnimated(true)
+            self.player.pause()
         }
     }
     

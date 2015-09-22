@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t71-v4-DF3">
-                                <rect key="frame" x="20" y="140" width="1880" height="940"/>
+                                <rect key="frame" x="20" y="48" width="1880" height="1032"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ceh-mT-FYx">
                                     <size key="itemSize" width="400" height="400"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -42,8 +42,8 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="t71-v4-DF3" secondAttribute="trailing" id="64Y-KE-Zg2"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="t71-v4-DF3" secondAttribute="bottom" id="KKR-N8-DuR"/>
+                            <constraint firstItem="t71-v4-DF3" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="48" id="NQg-ju-WfV"/>
                             <constraint firstItem="t71-v4-DF3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ZRt-uw-ID5"/>
-                            <constraint firstItem="t71-v4-DF3" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="eUD-Gf-nXy"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
