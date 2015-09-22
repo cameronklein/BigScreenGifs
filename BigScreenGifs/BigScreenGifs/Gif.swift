@@ -26,38 +26,54 @@ class Gif {
         self.asset = AVAsset(URL: url)
     }
     
+    enum GifError : ErrorType {
+        case NoID, NoSize, NoType, NoUrl, WrongType, invalidURL
+    }
+    
+    convenience init(json: NSDictionary) throws {
+        
+        guard let id        = json["id"]    as? String  else { throw GifError.NoID }
+        guard let width     = json["width"] as? CGFloat else { throw GifError.NoSize }
+        guard let height    = json["width"] as? CGFloat else { throw GifError.NoSize }
+        guard let type      = json["type"]  as? String  else { throw GifError.NoType }
+        guard let urlString = json["mp4"]   as? String  else { throw GifError.NoUrl }
+        
+        guard let url = NSURL(string: urlString)        else { throw GifError.invalidURL }
+        
+        guard type == "image/gif" else { throw GifError.WrongType }
+        
+        let description = json["description"] as? String
+        
+        self.init(id: id, description: description, url: url, size: CGSizeMake(width, height))
+    }
+    
     class func gifsFromGalleryDictionary(json: NSDictionary) -> [Gif] {
         
         var array = [Gif]()
         
-        guard let images = json["data"] as? NSArray else {
-            return array
-        }
-
-        for image in images {
-            
-            guard let id = image["id"] as? String else { break }
-            let description = image["description"] as? String
-            guard let width = image["width"] as? Int else { break }
-            guard let height = image["width"] as? Int else { break }
-            guard let type = image["type"] as? String else { break }
-            guard type == "image/gif" else { break }
-            guard let urlString = image["mp4"] as? String else { break }
-            
-            let widthNumber = NSNumber(integer: width)
-            let heightNumber = NSNumber(integer: height)
-            
-            let CGWidth = CGFloat(widthNumber)
-            let CGHeight = CGFloat(heightNumber)
-            
-            let httpsString = urlString.stringByReplacingOccurrencesOfString("http", withString: "https")
-            guard let url = NSURL(string: httpsString) else { break }
-
-            array.append(Gif(id: id, description: description, url: url, size: CGSizeMake(CGWidth, CGHeight)))
-        }
+        guard let images = json["data"] as? [NSDictionary] else { return array }
         
+        for image in images {
+            do {
+                let gif = try Gif(json: image)
+                array.append(gif)
+            } catch GifError.NoID {
+                print("Gif Initialization Error: No ID!")
+            } catch GifError.NoSize {
+                print("Gif Initialization Error: No Size!")
+            } catch GifError.NoType {
+                print("Gif Initialization Error: No Type!")
+            } catch GifError.NoUrl {
+                print("Gif Initialization Error: No URL!")
+            } catch GifError.WrongType {
+                print("Gif Initialization Error: Wrong Type!")
+            } catch GifError.invalidURL {
+                print("Gif Initialization Error: Invalid URL!")
+            } catch {
+                print("Something went very wrong")
+            }
+        }
         return array
-
     }
 
 }

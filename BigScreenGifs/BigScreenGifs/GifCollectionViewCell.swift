@@ -11,6 +11,8 @@ import AVKit
 
 class GifCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
+    
     let player = AVPlayer()
     let playerLayer = AVPlayerLayer()
     var playerItem : AVPlayerItem!
@@ -34,8 +36,6 @@ class GifCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         playerLayer.player = player
         contentView.layer.addSublayer(playerLayer)
-        
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +47,12 @@ class GifCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = contentView.bounds
+    }
+    
+    // MARK: - Focus Engine Methods
+    
+    override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        self.transform =  self.focused ? CGAffineTransformMakeScale(1.5, 1.5) :CGAffineTransformIdentity
     }
     
     // MARK: - Notification Handlers
