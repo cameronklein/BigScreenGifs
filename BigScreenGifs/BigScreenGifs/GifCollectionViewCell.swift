@@ -9,12 +9,18 @@
 import UIKit
 import AVKit
 
+let kCellPopAnimationDuration : NSTimeInterval = 0.2
+let kCellPopAnimationScale : CGFloat = 1.2
+
 class GifCollectionViewCell: UICollectionViewCell {
-    
-    // MARK: - Properties
+
+    // MARK: - Constants
     
     let player = AVPlayer()
     let playerLayer = AVPlayerLayer()
+    
+    // MARK - Variables
+    
     var playerItem : AVPlayerItem!
     
     var gif : Gif! {
@@ -52,7 +58,13 @@ class GifCollectionViewCell: UICollectionViewCell {
     // MARK: - Focus Engine Methods
     
     override func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
-        self.transform =  self.focused ? CGAffineTransformMakeScale(1.5, 1.5) :CGAffineTransformIdentity
+        
+        UIView.animateWithDuration(kCellPopAnimationDuration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.transform =  self.focused ? CGAffineTransformMakeScale(kCellPopAnimationScale, kCellPopAnimationScale) :CGAffineTransformIdentity
+
+            }) { (success) -> Void in
+                
+        }
     }
     
     // MARK: - Notification Handlers

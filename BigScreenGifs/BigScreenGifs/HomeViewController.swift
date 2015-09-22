@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  HomeViewController.swift
 //  BigScreenGifs
 //
 //  Created by Cameron Klein on 9/19/15.
@@ -9,7 +9,7 @@
 import UIKit
 import AVKit
 
-class FirstViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     

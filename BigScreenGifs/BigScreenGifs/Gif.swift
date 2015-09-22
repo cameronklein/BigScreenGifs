@@ -17,6 +17,8 @@ class Gif {
     let size            : CGSize
     let asset           : AVAsset
     
+    // MARK: - Initializers
+    
     init(id: String, description: String?, url: NSURL, size: CGSize) {
         self.id             = id
         self.description    = description
@@ -46,7 +48,7 @@ class Gif {
         
         self.init(id: id, description: description, url: url, size: CGSizeMake(width, height))
     }
-    
+
     class func gifsFromGalleryDictionary(json: NSDictionary) -> [Gif] {
         
         var array = [Gif]()

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7EFBA7031BAE19BD00C6756E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7021BAE19BD00C6756E /* AppDelegate.swift */; };
-		7EFBA7051BAE19BD00C6756E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7041BAE19BD00C6756E /* FirstViewController.swift */; };
+		7EFBA7051BAE19BD00C6756E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7041BAE19BD00C6756E /* HomeViewController.swift */; };
 		7EFBA7071BAE19BD00C6756E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7061BAE19BD00C6756E /* SecondViewController.swift */; };
 		7EFBA70A1BAE19BD00C6756E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EFBA7081BAE19BD00C6756E /* Main.storyboard */; };
 		7EFBA70C1BAE19BD00C6756E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EFBA70B1BAE19BD00C6756E /* Assets.xcassets */; };
@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		7EFBA6FF1BAE19BD00C6756E /* BigScreenGifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigScreenGifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFBA7021BAE19BD00C6756E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7EFBA7041BAE19BD00C6756E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		7EFBA7041BAE19BD00C6756E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7EFBA7061BAE19BD00C6756E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		7EFBA7091BAE19BD00C6756E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EFBA70B1BAE19BD00C6756E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		7EFBA72C1BAE228B00C6756E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7EFBA7041BAE19BD00C6756E /* FirstViewController.swift */,
+				7EFBA7041BAE19BD00C6756E /* HomeViewController.swift */,
 				7EFBA7061BAE19BD00C6756E /* SecondViewController.swift */,
 				7EFBA72F1BAE23FE00C6756E /* NetworkController.swift */,
 			);
@@ -247,7 +247,7 @@
 				7EFBA7301BAE23FE00C6756E /* NetworkController.swift in Sources */,
 				7EFBA73A1BAE5A2A00C6756E /* GifCollectionViewCell.swift in Sources */,
 				7EFBA7031BAE19BD00C6756E /* AppDelegate.swift in Sources */,
-				7EFBA7051BAE19BD00C6756E /* FirstViewController.swift in Sources */,
+				7EFBA7051BAE19BD00C6756E /* HomeViewController.swift in Sources */,
 				7EFBA72E1BAE23E500C6756E /* Gif.swift in Sources */,
 				7EFBA7321BAE571700C6756E /* GifsDataSource.swift in Sources */,
 			);
