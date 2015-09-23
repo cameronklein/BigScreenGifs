@@ -15,9 +15,19 @@ let cellsPerRow : CGFloat = 5
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Properties
     let dataSource = GifsDataSource()
+
+    lazy var itemSize : CGSize = {
+        let numberOfSpaces = cellsPerRow - 1
+        let totalSpace = (numberOfSpaces * interitemSpacing) + (sectionInset * 2)
+        let width = self.collectionView.frame.size.width
+        let dimension = (width - totalSpace) / cellsPerRow
+        return CGSize(width: dimension, height: dimension)
+    }()
     
     // MARK: - Lifecycle Methods
     
@@ -43,13 +53,17 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        let numberOfSpaces = cellsPerRow - 1
-        let totalSpace = (numberOfSpaces * interitemSpacing) + (sectionInset * 2)
-        let width = collectionView.frame.size.width
-        let dimension = (width - totalSpace) / cellsPerRow
-        return CGSizeMake(dimension, dimension)
+        return itemSize
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.performBatchUpdates({ () -> Void in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        }, completion: nil)
+        
+    }
+
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return interitemSpacing

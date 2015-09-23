@@ -45,7 +45,7 @@ class GifCollectionViewCell: UICollectionViewCell {
         contentView.layer.addSublayer(playerLayer)
         self.layer.shadowColor = UIColor.blackColor().CGColor
         self.layer.shadowOffset = CGSizeMake(0, 0)
-        self.layer.shadowRadius = 5
+        self.layer.shadowRadius = 7
         self.layer.shadowOpacity = 0
     }
 
@@ -85,7 +85,6 @@ class GifCollectionViewCell: UICollectionViewCell {
             },
             completion: nil)
     }
-    
     
     // MARK: - Focus Engine Methods
     
