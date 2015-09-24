@@ -14,7 +14,7 @@ class NetworkController {
     
     class func getGifsWithSuccessHandler(successHandler: (gifs: [Gif]) -> (Void), failureHandler:(errorDescription: String) -> (Void))
     {
-        let urlString = baseURL + "gallery/search/viral/0?q=dog&q_type=anigif"
+        let urlString = baseURL + "gallery/search/viral/0?q=cat&q_type=anigif"
         let url = NSURL(string: urlString)
         
         guard let requestURL = url else {

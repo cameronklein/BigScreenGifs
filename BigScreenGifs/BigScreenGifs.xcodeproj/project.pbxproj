@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7EAC571D1BB3B088009E28EA /* GroupToSingleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC571C1BB3B088009E28EA /* GroupToSingleTransition.swift */; };
+		7EAC571F1BB3B313009E28EA /* TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAC571E1BB3B313009E28EA /* TransitionDelegate.swift */; };
 		7EFBA7031BAE19BD00C6756E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7021BAE19BD00C6756E /* AppDelegate.swift */; };
 		7EFBA7051BAE19BD00C6756E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7041BAE19BD00C6756E /* HomeViewController.swift */; };
 		7EFBA7071BAE19BD00C6756E /* SingleGifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBA7061BAE19BD00C6756E /* SingleGifViewController.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7EAC571C1BB3B088009E28EA /* GroupToSingleTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupToSingleTransition.swift; sourceTree = "<group>"; };
+		7EAC571E1BB3B313009E28EA /* TransitionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDelegate.swift; sourceTree = "<group>"; };
 		7EFBA6FF1BAE19BD00C6756E /* BigScreenGifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BigScreenGifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EFBA7021BAE19BD00C6756E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EFBA7041BAE19BD00C6756E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				7EFBA72C1BAE228B00C6756E /* Controller */,
 				7E38B0341BB1254F00871F8F /* Collection View Flow Layouts */,
 				7EFBA73C1BAF1C5400C6756E /* Supporting Files */,
+				7EAC571C1BB3B088009E28EA /* GroupToSingleTransition.swift */,
+				7EAC571E1BB3B313009E28EA /* TransitionDelegate.swift */,
 			);
 			path = BigScreenGifs;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EAC571F1BB3B313009E28EA /* TransitionDelegate.swift in Sources */,
 				7EFBA7071BAE19BD00C6756E /* SingleGifViewController.swift in Sources */,
 				7EFBA72A1BAE227900C6756E /* Secrets.swift in Sources */,
 				7EFBA7301BAE23FE00C6756E /* NetworkController.swift in Sources */,
@@ -257,6 +264,7 @@
 				7EFBA7031BAE19BD00C6756E /* AppDelegate.swift in Sources */,
 				7EFBA7051BAE19BD00C6756E /* HomeViewController.swift in Sources */,
 				7EFBA72E1BAE23E500C6756E /* Gif.swift in Sources */,
+				7EAC571D1BB3B088009E28EA /* GroupToSingleTransition.swift in Sources */,
 				7EFBA7321BAE571700C6756E /* GifsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

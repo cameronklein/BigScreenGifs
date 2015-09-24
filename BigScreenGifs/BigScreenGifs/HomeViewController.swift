@@ -18,9 +18,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    // MARK: - Properties
+    // MARK: - Constant Properties
     let dataSource = GifsDataSource()
 
+    // MARK: - Variable Properties
+    var selectedIndexPath : NSIndexPath!
+    
     lazy var itemSize : CGSize = {
         let numberOfSpaces = cellsPerRow - 1
         let totalSpace = (numberOfSpaces * interitemSpacing) + (sectionInset * 2)
@@ -33,6 +36,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collectionView.registerClass(GifCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.dataSource = dataSource
         collectionView.delegate = self
@@ -57,9 +61,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.performBatchUpdates({ () -> Void in
-            self.collectionView.collectionViewLayout.invalidateLayout()
-        }, completion: nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let singleGif = storyboard.instantiateViewControllerWithIdentifier("Single Gif") as! SingleGifViewController
+        
+        selectedIndexPath = indexPath
+        
+        singleGif.modalPresentationStyle = .Custom
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        singleGif.transitioningDelegate = appDelegate.transitionDelegate
+        self.presentViewController(singleGif, animated: true, completion: nil)
         
     }
 

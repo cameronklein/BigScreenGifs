@@ -11,10 +11,15 @@ import UIKit
 class SingleGifViewController: UIViewController {
 
     @IBOutlet weak var gifContainerView: UIView!
+    @IBOutlet weak var coverView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
