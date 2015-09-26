@@ -72,20 +72,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTG-Vt-V8w">
+                                <rect key="frame" x="931" y="1035" width="58" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="REv-SE-xar">
-                                <rect key="frame" x="320" y="180" width="1280" height="720"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="320" y="64" width="1280" height="952"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="REv-SE-xar" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="GUt-dO-lIV"/>
+                            <constraint firstItem="REv-SE-xar" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" constant="64" id="Bqy-gM-Uh8"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="REv-SE-xar" secondAttribute="bottom" constant="64" id="Fs9-EB-LuB"/>
                             <constraint firstItem="D3Q-jo-NUT" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="topMargin" id="OXU-pk-DEO"/>
                             <constraint firstAttribute="trailing" secondItem="D3Q-jo-NUT" secondAttribute="trailing" id="RNC-Be-DDH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="D3Q-jo-NUT" secondAttribute="bottom" id="YCK-cW-YrZ"/>
                             <constraint firstItem="REv-SE-xar" firstAttribute="width" secondItem="QS5-Rx-YEW" secondAttribute="width" multiplier="2/3" id="aMj-6t-ibd"/>
-                            <constraint firstItem="REv-SE-xar" firstAttribute="height" secondItem="QS5-Rx-YEW" secondAttribute="height" multiplier="2/3" id="ehO-te-WQT"/>
+                            <constraint firstItem="yTG-Vt-V8w" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="hKz-sD-P5H"/>
                             <constraint firstItem="REv-SE-xar" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="kvZ-gG-up3"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="yTG-Vt-V8w" secondAttribute="bottom" constant="16" id="vC0-Yg-M0C"/>
                             <constraint firstItem="D3Q-jo-NUT" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="whh-6U-OXN"/>
                         </constraints>
                     </view>
@@ -93,6 +101,7 @@
                     <connections>
                         <outlet property="coverView" destination="D3Q-jo-NUT" id="L6M-Gq-4OO"/>
                         <outlet property="gifContainerView" destination="REv-SE-xar" id="YWa-4T-5ks"/>
+                        <outlet property="titleLabel" destination="yTG-Vt-V8w" id="hct-Hh-JrC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

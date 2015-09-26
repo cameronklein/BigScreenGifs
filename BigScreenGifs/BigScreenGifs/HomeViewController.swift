@@ -65,12 +65,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let singleGif = storyboard.instantiateViewControllerWithIdentifier("Single Gif") as! SingleGifViewController
         
+        let selectedCell = collectionView.cellForItemAtIndexPath(indexPath) as? GifCollectionViewCell
         selectedIndexPath = indexPath
+        singleGif.gif = selectedCell?.gif
         
         singleGif.modalPresentationStyle = .Custom
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         singleGif.transitioningDelegate = appDelegate.transitionDelegate
         self.presentViewController(singleGif, animated: true, completion: nil)
+        
+    }
+    
+    func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+        
+        if let nextView = context.nextFocusedView as? GifCollectionViewCell {
+            
+        } 
         
     }
 
