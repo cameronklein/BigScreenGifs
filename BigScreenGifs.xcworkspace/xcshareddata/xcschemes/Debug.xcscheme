@@ -17,7 +17,7 @@
                BlueprintIdentifier = "7EFBA6FE1BAE19BD00C6756E"
                BuildableName = "BigScreenGifs.app"
                BlueprintName = "BigScreenGifs"
-               ReferencedContainer = "container:BigScreenGifs.xcodeproj">
+               ReferencedContainer = "container:BigScreenGifs/BigScreenGifs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "7EFBA6FE1BAE19BD00C6756E"
             BuildableName = "BigScreenGifs.app"
             BlueprintName = "BigScreenGifs"
-            ReferencedContainer = "container:BigScreenGifs.xcodeproj">
+            ReferencedContainer = "container:BigScreenGifs/BigScreenGifs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "7EFBA6FE1BAE19BD00C6756E"
             BuildableName = "BigScreenGifs.app"
             BlueprintName = "BigScreenGifs"
-            ReferencedContainer = "container:BigScreenGifs.xcodeproj">
+            ReferencedContainer = "container:BigScreenGifs/BigScreenGifs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "7EFBA6FE1BAE19BD00C6756E"
             BuildableName = "BigScreenGifs.app"
             BlueprintName = "BigScreenGifs"
-            ReferencedContainer = "container:BigScreenGifs.xcodeproj">
+            ReferencedContainer = "container:BigScreenGifs/BigScreenGifs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
