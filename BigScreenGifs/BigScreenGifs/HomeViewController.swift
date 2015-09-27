@@ -9,9 +9,9 @@
 import UIKit
 import AVKit
 
-let interitemSpacing : CGFloat = 48
-let sectionInset : CGFloat = 20
-let cellsPerRow : CGFloat = 5
+let interitemSpacing : CGFloat = 100
+let sectionInset : CGFloat = 48
+let cellsPerRow : CGFloat = 2.2
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -47,7 +47,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,21 +72,37 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         singleGif.transitioningDelegate = appDelegate.transitionDelegate
         self.presentViewController(singleGif, animated: true, completion: nil)
-        
     }
     
     func collectionView(collectionView: UICollectionView, didUpdateFocusInContext context: UICollectionViewFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
         
-        if let nextView = context.nextFocusedView as? GifCollectionViewCell {
-            
-        } 
+        let lastCell = context.previouslyFocusedView as? GifCollectionViewCell
+        let nextCell = context.nextFocusedView as? GifCollectionViewCell
         
+        let animations = {
+            
+            self.collectionView.scrollToItemAtIndexPath(context.nextFocusedIndexPath,
+                atScrollPosition: .CenteredHorizontally,
+                animated: false)
+            
+            lastCell?.unpop()
+            lastCell?.player.pause()
+            nextCell?.pop()
+            nextCell?.player.play()
+            
+        }
+        
+        UIView.animateWithDuration(0.5,
+            delay: 0.0,
+            options: UIViewAnimationOptions.AllowAnimatedContent,
+            animations: animations,
+            completion: nil)
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return interitemSpacing
+        return 0
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -95,7 +110,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(sectionInset, sectionInset, 0, sectionInset)
+        return UIEdgeInsetsMake(0, sectionInset, 0, sectionInset)
     }
+    
 }
 
