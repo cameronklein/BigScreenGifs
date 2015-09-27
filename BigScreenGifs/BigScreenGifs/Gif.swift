@@ -44,7 +44,7 @@ class Gif {
         
         guard type == "image/gif" else { throw GifError.WrongType }
         
-        let description = json["description"] as? String
+        let description = json["title"] as? String
         
         self.init(id: id, description: description, url: url, size: CGSizeMake(width, height))
     }

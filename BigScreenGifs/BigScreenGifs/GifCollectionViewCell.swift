@@ -43,12 +43,12 @@ class GifCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         playerLayer.player = player
-        playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerLayer.videoGravity = AVLayerVideoGravityResizeAspect
         contentView.layer.addSublayer(playerLayer)
         self.layer.shadowColor = UIColor.blackColor().CGColor
         self.layer.shadowOffset = CGSizeMake(0, 0)
-        self.layer.shadowRadius = 7
-        self.layer.shadowOpacity = 0
+        self.layer.shadowRadius = 10
+        self.layer.shadowOpacity = 0.5
     }
 
     required init?(coder aDecoder: NSCoder) {

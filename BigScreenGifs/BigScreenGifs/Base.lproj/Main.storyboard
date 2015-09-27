@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t71-v4-DF3">
-                                <rect key="frame" x="20" y="48" width="1880" height="1032"/>
+                                <rect key="frame" x="-480" y="0.0" width="2880" height="980"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEx-cy-h36">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -38,18 +38,32 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VaX-9j-inP">
+                                <rect key="frame" x="52" y="997" width="1816" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="t5Z-Vr-e7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="t71-v4-DF3" secondAttribute="trailing" id="64Y-KE-Zg2"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="t71-v4-DF3" secondAttribute="bottom" id="KKR-N8-DuR"/>
-                            <constraint firstItem="t71-v4-DF3" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" constant="48" id="NQg-ju-WfV"/>
-                            <constraint firstItem="t71-v4-DF3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ZRt-uw-ID5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="t71-v4-DF3" secondAttribute="trailing" constant="-500" id="64Y-KE-Zg2"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="t71-v4-DF3" secondAttribute="bottom" constant="100" id="KKR-N8-DuR"/>
+                            <constraint firstItem="t71-v4-DF3" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="NQg-ju-WfV"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="VaX-9j-inP" secondAttribute="bottom" constant="24" id="Vdk-MQ-eYY"/>
+                            <constraint firstItem="t71-v4-DF3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-500" id="ZRt-uw-ID5"/>
+                            <constraint firstItem="VaX-9j-inP" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="ebM-g5-BoL"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="collectionView" destination="t71-v4-DF3" id="mER-cD-yl6"/>
+                        <outlet property="collectionViewLeadingConstraint" destination="ZRt-uw-ID5" id="jyJ-Da-d1b"/>
+                        <outlet property="collectionViewTrailingConstraint" destination="64Y-KE-Zg2" id="9ko-1d-1Jd"/>
+                        <outlet property="descriptionLabel" destination="VaX-9j-inP" id="k1J-5M-ChC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
